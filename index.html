@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081229">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="A.P.R.E.N.D.A.">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" href="./icons/icon-192.png">
+<title>Método A.P.R.E.N.D.A. — Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#081229; --blue:#2F6BFF; --gold:#F5B400; --white:#fff;
+  --ink:#10182B; --ink-60:rgba(16,24,43,.62); --gray:#EEF3F8;
+  --f-display:'Montserrat',sans-serif; --f-body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:var(--f-body);background:var(--gray);color:var(--ink);min-height:100dvh;}
+.hero{
+  background:var(--navy);color:#fff;padding:36px 22px 28px;text-align:center;
+}
+.hero .kicker{font-family:var(--f-display);font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,6vw,28px);line-height:1.2;margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,.7);font-size:14px;max-width:360px;margin:0 auto;}
+.license{background:#06101f;color:rgba(255,255,255,.65);font-size:11px;text-align:center;padding:8px 14px;}
+.license strong{color:var(--gold);}
+.wrap{max-width:480px;margin:0 auto;padding:20px 16px 40px;}
+.install-card{
+  background:var(--white);border-radius:14px;padding:18px 16px;margin-bottom:18px;
+  border:1.4px solid rgba(8,18,41,.1);text-align:center;
+}
+.install-card p{font-size:13.5px;color:var(--ink-60);margin-bottom:12px;line-height:1.5;}
+#btn-install{
+  display:none;width:100%;padding:14px;border:none;border-radius:10px;
+  background:var(--blue);color:#fff;font-family:var(--f-display);font-weight:700;
+  font-size:14px;cursor:pointer;
+}
+#btn-install.show{display:block;}
+.hint{font-size:12.5px;color:var(--ink-60);text-align:center;margin-bottom:18px;line-height:1.5;}
+.list{display:flex;flex-direction:column;gap:10px;}
+.item{
+  display:flex;align-items:center;gap:14px;background:var(--white);
+  border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink);
+  border:1.4px solid rgba(8,18,41,.08);transition:border-color .15s;
+}
+.item:active{border-color:var(--blue);}
+.num{
+  width:36px;height:36px;border-radius:10px;background:var(--navy);color:var(--gold);
+  font-family:var(--f-display);font-weight:800;font-size:13px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.item .info{flex:1;min-width:0;}
+.item .info strong{display:block;font-family:var(--f-display);font-weight:700;font-size:14.5px;margin-bottom:2px;}
+.item .info span{font-size:12.5px;color:var(--ink-60);}
+.arrow{color:var(--blue);font-size:18px;font-weight:700;}
+.footer{text-align:center;margin-top:28px;font-size:12px;color:rgba(16,24,43,.4);}
+</style>
+</head>
+<body>
+<div class="license"><strong>USO PESSOAL E INTRANSFERÍVEL</strong> · Apenas para o comprador</div>
+<div class="hero">
+  <div class="kicker">Método A.P.R.E.N.D.A.</div>
+  <h1>Templates Interativos</h1>
+  <p>Abra no celular. Adicione à tela inicial para usar como app.</p>
+</div>
+
+<div class="wrap">
+  <div class="install-card">
+    <p>Para usar como aplicativo: toque em <strong>Instalar</strong> ou no menu do navegador → <strong>Adicionar à tela inicial</strong>.</p>
+    <button id="btn-install" type="button">Instalar na tela inicial</button>
+  </div>
+
+  <p class="hint">Seus preenchimentos são salvos automaticamente neste aparelho.</p>
+
+  <div class="list">
+    <a class="item" href="./templates/02-planner-semanal.html">
+      <div class="num">02</div>
+      <div class="info"><strong>Planner Semanal</strong><span>Rotina dia a dia</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/03-planner-mensal.html">
+      <div class="num">03</div>
+      <div class="info"><strong>Planner Mensal</strong><span>Visão de 30 dias</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/04-mapa-mental.html">
+      <div class="num">04</div>
+      <div class="info"><strong>Mapa Mental</strong><span>Estruturar conteúdo</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/05-resumo-inteligente.html">
+      <div class="num">05</div>
+      <div class="info"><strong>Resumo Inteligente</strong><span>Recuperação ativa</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/06-checklist-diario.html">
+      <div class="num">06</div>
+      <div class="info"><strong>Checklist Diário</strong><span>Antes, durante e depois</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/07-calendario-revisao.html">
+      <div class="num">07</div>
+      <div class="info"><strong>Calendário de Revisão</strong><span>Curva do esquecimento</span></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="item" href="./templates/08-diario-aprendizado.html">
+      <div class="num">08</div>
+      <div class="info"><strong>Diário de Aprendizado</strong><span>Registro diário</span></div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <p class="footer">© Método A.P.R.E.N.D.A. · Uso pessoal e intransferível</p>
+</div>
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const btn = document.getElementById('btn-install');
+  btn.classList.add('show');
+  btn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    btn.classList.remove('show');
+  });
+});
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
