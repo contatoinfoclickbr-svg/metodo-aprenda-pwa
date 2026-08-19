@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081229">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Checklist Diário — Método A.P.R.E.N.D.A.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#081229;--blue:#2F6BFF;--gold:#F5B400;--white:#FFF;--green:#2E9E5B;--ink:#10182B;--ink-60:rgba(16,24,43,.62);--ink-40:rgba(16,24,43,.4);--navy-line:rgba(8,18,41,.12);--blue-08:rgba(47,107,255,.08);--f-display:Montserrat,sans-serif;--f-body:Inter,sans-serif;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{font-family:var(--f-body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.6;}
+.wrap{max-width:640px;margin:0 auto;padding:0 0 60px;}
+.license-bar{background:#081229;color:rgba(255,255,255,.75);font-size:11px;text-align:center;padding:10px 16px;line-height:1.45;}
+.license-bar strong{color:#F5B400;font-weight:700;}
+.hero{background:var(--navy);color:#fff;padding:44px 22px 34px;}
+.kicker{font-family:var(--f-display);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,7vw,32px);line-height:1.15;margin-bottom:10px;}
+.hero p{color:rgba(255,255,255,.72);font-size:15px;}
+.section{padding:28px 22px 4px;}
+h2{font-family:var(--f-display);font-weight:800;font-size:19px;color:var(--navy);margin-bottom:4px;}
+.section p.sub{font-size:13.5px;color:var(--ink-60);margin-bottom:8px;}
+.box{border-radius:var(--radius);padding:18px 20px;margin:0 22px 24px;}
+.box--dica{background:var(--blue-08);border-left:3px solid var(--blue);}
+.box-label{font-family:var(--f-display);font-weight:800;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;display:block;}
+.box p{font-size:14.5px;line-height:1.6;}
+label{display:block;font-family:var(--f-display);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-40);margin-bottom:6px;}
+input[type=text],input[type=date],input[type=number],textarea{width:100%;border:1.4px solid var(--navy-line);border-radius:8px;padding:11px 12px;font-family:var(--f-body);font-size:15px;color:var(--ink);background:var(--white);}
+input:focus,textarea:focus{outline:none;border-color:var(--blue);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 22px 20px;}
+.field{padding:0 22px 20px;}
+.checklist-group{margin:0 22px 22px;border:1.4px solid var(--navy-line);border-radius:var(--radius);overflow:hidden;}
+.check-item{display:flex;align-items:center;gap:12px;padding:13px 18px;border-top:1px solid var(--navy-line);}
+.checklist-group .check-item:first-child{border-top:none;}
+.check-item input[type=checkbox]{width:20px;height:20px;accent-color:var(--green);flex-shrink:0;}
+.check-item .ctext{flex:1;}
+.check-item .ctitle{font-size:14.5px;font-weight:600;color:var(--ink);display:block;}
+.check-item .csub{font-size:12.5px;color:var(--ink-40);}
+.check-item .ctime{font-family:var(--f-display);font-weight:700;font-size:11px;color:var(--ink-40);flex-shrink:0;}
+.footer-note{padding:8px 22px 40px;font-size:13px;color:var(--ink-40);text-align:center;}
+.license-footer{margin:20px 22px 10px;padding:14px 16px;border:1.4px dashed rgba(8,18,41,.18);border-radius:10px;background:#F8FAFC;text-align:center;font-size:12px;color:rgba(16,24,43,.55);line-height:1.5;}
+.license-footer strong{color:#081229;}
+.save-note{margin:0 22px 8px;font-size:12.5px;color:rgba(16,24,43,.45);text-align:center;}
+.btn-clear{display:block;width:calc(100% - 44px);margin:8px 22px 20px;padding:12px;text-align:center;border:1.4px solid rgba(8,18,41,.15);border-radius:10px;background:#fff;color:#5A6478;font-family:var(--f-display);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;}
+#save-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#081229;color:#fff;font-size:13px;font-weight:600;padding:10px 20px;border-radius:999px;z-index:9999;opacity:0;transition:transform .25s,opacity .25s;pointer-events:none;}
+#save-toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+</style>
+</head>
+<body>
+<div class="license-bar"><strong>USO PESSOAL E INTRANSFERÍVEL</strong> · Material licenciado apenas para o comprador · Reprodução ou compartilhamento não autorizado é proibido</div>
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">Bônus 06 de 9 · Método A.P.R.E.N.D.A.</div>
+    <h1>Checklist Diário</h1>
+    <p>Antes, durante e depois de cada sessão de estudo. Marque cada item conforme concluir.</p>
+  </div>
+  <div class="box box--dica" style="margin-top:24px;"><span class="box-label">Como usar</span><p>Não pule para o final. A ordem dos blocos segue a estrutura de uma sessão eficiente.</p></div>
+  <div class="row2">
+    <div><label>Data</label><input type="date" id="data"></div>
+    <div><label>Horário</label><input type="text" id="horario" placeholder="Ex.: 19h30"></div>
+  </div>
+  <div class="field"><label>Assunto de hoje</label><input type="text" id="assunto" placeholder="Ex.: Direito Constitucional"></div>
+  <div class="section"><h2>Antes de começar</h2></div>
+  <div class="checklist-group">
+    <div class="check-item"><input type="checkbox" id="a1"><span class="ctext"><span class="ctitle">Celular no silencioso ou em outro cômodo</span></span></div>
+    <div class="check-item"><input type="checkbox" id="a2"><span class="ctext"><span class="ctitle">Notificações do computador desligadas</span></span></div>
+    <div class="check-item"><input type="checkbox" id="a3"><span class="ctext"><span class="ctitle">Material de hoje separado antes de sentar</span></span></div>
+    <div class="check-item"><input type="checkbox" id="a4"><span class="ctext"><span class="ctitle">Defini um objetivo claro para a sessão</span></span></div>
+  </div>
+  <div class="section"><h2>Durante a sessão</h2></div>
+  <div class="checklist-group">
+    <div class="check-item"><input type="checkbox" id="d1"><span class="ctext"><span class="ctitle">Revisão do conteúdo anterior</span></span><span class="ctime">~10 min</span></div>
+    <div class="check-item"><input type="checkbox" id="d2"><span class="ctext"><span class="ctitle">Aprendizagem de um novo tema</span></span><span class="ctime">~35 min</span></div>
+    <div class="check-item"><input type="checkbox" id="d3"><span class="ctext"><span class="ctitle">Mapa mental ou intercalação</span></span><span class="ctime">~15 min</span></div>
+    <div class="check-item"><input type="checkbox" id="d4"><span class="ctext"><span class="ctitle">Recuperação ativa (fechei o material e recontei)</span></span><span class="ctime">~15 min</span></div>
+    <div class="check-item"><input type="checkbox" id="d5"><span class="ctext"><span class="ctitle">Questões ou exercícios práticos</span></span><span class="ctime">~10 min</span></div>
+    <div class="check-item"><input type="checkbox" id="d6"><span class="ctext"><span class="ctitle">Usei blocos de Pomodoro</span></span></div>
+  </div>
+  <div class="section"><h2>Ao encerrar</h2></div>
+  <div class="checklist-group">
+    <div class="check-item"><input type="checkbox" id="f1"><span class="ctext"><span class="ctitle">Planejei a próxima revisão espaçada</span></span></div>
+    <div class="check-item"><input type="checkbox" id="f2"><span class="ctext"><span class="ctitle">Anotei palavras-chave para revisão futura</span></span></div>
+    <div class="check-item"><input type="checkbox" id="f3"><span class="ctext"><span class="ctitle">Registrei a sessão no Diário de Aprendizado</span></span></div>
+  </div>
+  <div class="section"><h2>Fechamento rápido</h2></div>
+  <div class="row2">
+    <div><label>Concentração (1–10)</label><input type="number" id="conc" min="1" max="10"></div>
+    <div><label>Consegui explicar?</label><input type="text" id="explicou" placeholder="Sim / Parcial / Não"></div>
+  </div>
+  <div class="field"><label>Uma frase sobre o dia</label><input type="text" id="frase"></div>
+  <p class="save-note">Seus dados são salvos automaticamente neste aparelho.</p>
+  <button type="button" class="btn-clear" id="btn-clear">Limpar preenchimento</button>
+  <div class="license-footer"><strong>© Método A.P.R.E.N.D.A. — Todos os direitos reservados</strong><br>Uso pessoal e intransferível.</div>
+  <div class="footer-note">Método A.P.R.E.N.D.A. · Checklist Diário</div>
+</div>
+<div id="save-toast">Salvo automaticamente</div>
+<script>
+(function(){
+  const KEY='aprenda_checklist_diario';
+  function save(){
+    const data={};
+    document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+      const id=el.id||('f'+i); if(!el.id) el.id=id;
+      data[id]=(el.type==='checkbox'||el.type==='radio')?el.checked:el.value;
+    });
+    try{localStorage.setItem(KEY,JSON.stringify(data));}catch(e){}
+    const t=document.getElementById('save-toast');
+    if(t){t.classList.add('show');clearTimeout(window._st);window._st=setTimeout(()=>t.classList.remove('show'),1200);}
+  }
+  function load(){
+    try{
+      const raw=localStorage.getItem(KEY); if(!raw) return;
+      const data=JSON.parse(raw);
+      document.querySelectorAll('input,textarea,select').forEach((el,i)=>{
+        const id=el.id||('f'+i); if(data[id]===undefined) return;
+        if(el.type==='checkbox'||el.type==='radio') el.checked=!!data[id]; else el.value=data[id];
+      });
+    }catch(e){}
+  }
+  load();
+  document.addEventListener('input',save);
+  document.addEventListener('change',save);
+  document.getElementById('btn-clear').addEventListener('click',()=>{
+    if(!confirm('Apagar todos os dados?')) return;
+    localStorage.removeItem(KEY);
+    document.querySelectorAll('input,textarea,select').forEach(el=>{
+      if(el.type==='checkbox'||el.type==='radio') el.checked=false; else el.value='';
+    });
+  });
+})();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js').catch(()=>{});}
+</script>
+</body>
+</html>
